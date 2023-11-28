@@ -1,0 +1,209 @@
+<html>
+<head>
+    <style>
+        /* Style the body element */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the navbar element */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            margin: 0;
+            padding: 10px;
+            border-bottom: 1px solid black;
+            background: white;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* Style the button element in the navbar */
+        #login-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 30px;
+            margin: 0;
+            padding: 5px;
+            border: none;
+            background: blue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Style the popup element */
+        .popup {
+            position: fixed;
+            display: none;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            margin: 0;
+            padding: 20px;
+            border: 1px solid black;
+            background: white;
+            color: black;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Style the form element */
+        .popup form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Style the input elements */
+        .popup input {
+            width: 80%;
+            height: 30px;
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid gray;
+            outline: none;
+        }
+
+        /* Style the button elements */
+        .popup button {
+            width: 40%;
+            height: 30px;
+            margin: 10px;
+            padding: 5px;
+            border: none;
+            background: blue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Style the cancel button */
+        .popup button.cancel {
+            background: red;
+        }
+
+        /* Style the cover element */
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Add the blur effect to the cover element */
+            filter: blur(5px);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create a nav element that contains the button for the login form -->
+    <nav id="navbar" class="navbar">
+        <h1>My Website</h1>
+        <!-- Create a button element that will trigger the login form -->
+        <button id="login-btn">Login</button>
+    </nav>
+    <!-- Create a div element that covers the whole page -->
+    <div id="cover"></div>
+    <!-- Create a div element that contains the login form -->
+    <div id="popup" class="popup">
+        <!-- Create a form element that has the input fields and buttons -->
+        <form id="login-form">
+            <h2>Login</h2>
+            <input id="username" type="text" placeholder="Username" required>
+            <input id="password" type="password" placeholder="Password" required>
+            <button id="login" type="submit">Login</button>
+            <button id="cancel" type="button" class="cancel">Cancel</button>
+        </form>
+    </div>
+    <script>
+        // Select the elements by their id or class attributes
+        var navbar = document.getElementById("navbar");
+        var loginBtn = document.getElementById("login-btn");
+        var cover = document.getElementById("cover");
+        var popup = document.getElementById("popup");
+        var loginForm = document.getElementById("login-form");
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        var login = document.getElementById("login");
+        var cancel = document.getElementById("cancel");
+
+        // Add event listeners to the buttons
+        loginBtn.addEventListener("click", function() {
+            // Show the popup
+            popup.style.display = "block";
+            // Hide the navbar
+            navbar.style.display = "none";
+            // Blur the background
+            cover.style.filter = "blur(5px)";
+        });
+
+        login.addEventListener("click", function(event) {
+            // Prevent the default behavior of the form submission
+            event.preventDefault();
+            // Get the input values
+            var usernameValue = username.value;
+            var passwordValue = password.value;
+            // Validate the input values
+            if (usernameValue && passwordValue) {
+                // Send the login data to a server using the fetch method
+                fetch("https://example.com/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username: usernameValue,
+                        password: passwordValue
+                    })
+                })
+                .then(function(response) {
+                    // Handle the response
+                    if (response.ok) {
+                        // Login successful
+                        alert("Login successful");
+                        // Hide the popup
+                        popup.style.display = "none";
+                        // Show the navbar
+                        navbar.style.display = "block";
+                        // Unblur the background
+                        cover.style.filter = "none";
+                    } else {
+                        // Login failed
+                        alert("Login failed");
+                    }
+                })
+                .catch(function(error) {
+                    // Handle the error
+                    alert("Error: " + error);
+                });
+            } else {
+                // Input values are empty
+                alert("Please enter your username and password");
+            }
+        });
+
+        cancel.addEventListener("click", function() {
+            // Hide the popup
+            popup.style.display = "none";
+            // Show the navbar
+            navbar.style.display = "block";
+            // Unblur the background
+            cover.style.filter = "none";
+        });
+    </script>
+</body>
+</html>
