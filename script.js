@@ -1,4 +1,3 @@
-var navbar = document.getElementById('navbar');
 var signupBtn = document.getElementById('signup-btn');
 var loginBtn = document.getElementById('login-btn');
 
@@ -23,25 +22,18 @@ var cancel = document.getElementById('cancel');
 
 signupBtn.addEventListener('click', function () {
 	// Show the popup
-	// alert("Hello! I am an alert box!!");
 	cover.style.display = 'block';
-	navbar.style.display = 'none';
-
+	loginForm.style.display = 'none';
+	regForm.style.display = 'grid';
 	popup.style.display = 'block';
-	// Hide the navbar
-	// Blur the background
-	cover.style.filter = 'blur(5px)';
 });
 loginBtn.addEventListener('click', function () {
 	// Show the popup
 	cover.style.display = 'block';
-	navbar.style.display = 'none';
 	regForm.style.display = 'none';
+	loginForm.style.display = 'grid';
 
 	popup.style.display = 'block';
-	// Hide the navbar
-	// Blur the background
-	cover.style.filter = 'blur(5px)';
 });
 
 reg.addEventListener('click', function (event) {
@@ -94,8 +86,6 @@ login.addEventListener('click', function (event) {
 
 	var usernameValue = usernameLogin.value;
 	var passwordValue = passwordLogin.value;
-	console.log(usernameValue);
-	console.log(passwordValue);
 
 	// Validate the input values
 	if (usernameValue && passwordValue) {

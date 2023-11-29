@@ -24,46 +24,6 @@ body {
 	width: 100%;
 	height: 100%;
 }
-#navbar {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: #1b2430;
-	padding: 10px 80px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-}
-/* .navbar {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 2;
-}
-.navbar li {
-	list-style: none;
-	padding: 0 20px;
-	position: relative;
-}
-.navbar li a {
-	text-decoration: none;
-	font-size: 1.3rem;
-	font-weight: 600;
-	color: #fff;
-	transition: 0.3s ease-in-out;
-}
-.navbar li a:hover,
-.navbar li a.active {
-	color: #17cf97;
-}
-.navbar li a:hover::after,
-.navbar li a.active::after {
-	content: '';
-	width: 30%;
-	height: 2px;
-	background: #17cf97;
-	position: absolute;
-	bottom: -4px;
-	left: 20px;
-} */
 .mobile {
 	display: none;
 }
@@ -84,25 +44,10 @@ body {
 
 /* Popup */
 #popup {
-	/* position: fixed;
-	display: none;
-	z-index: 10;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 400px;
-	height: 500px;
-	margin: 0;
-	padding: 20px;
-	border: 1px solid black;
-	background: white;
-	color: black;
-	font-size: 16px;
-	text-align: center; */
     position: fixed;
     width: 100%;
     z-index: 10;
-    display: none;
+    display: block;
 }
 /* LogIn */
 
@@ -116,9 +61,10 @@ body {
 	background: rgba(0, 0, 0, 0.6);
 	/* Add the blur effect to the cover element */
 	filter: blur(5px);
-	display: none;
+	display: block;
 }
 /* SignUp*/
+
 .registration-form {
 	margin: 70px auto;
 	width: 424px;
@@ -134,7 +80,6 @@ body {
 	text-align: center;
 	padding: 16px 0;
 	text-transform: uppercase;
-	/* Body/XL/600 */
 	font-family: Public Sans;
 	font-size: 25px;
 	font-style: normal;
@@ -153,7 +98,6 @@ body {
 	font-weight: 600;
 	font-style: normal;
     cursor: pointer;
-	/* line-height: 12; */
 }
 .registration-form p a:hover {
 	color: #fa8232;
@@ -186,7 +130,6 @@ label {
 form {
 	padding: 24px 32px;
 	display: grid;
-	/* grid-template-rows: 1fr 1fr 1fr 1fr auto auto; */
 	row-gap: 16px;
 	box-shadow: 0 -1px #e4e7e9 inset;
 }
@@ -201,6 +144,9 @@ form button {
 	font-weight: 600;
 	text-transform: uppercase;
 	cursor: pointer;
+}
+#reg-form{
+	display: none;
 }
 /* Login */
 .login-form {
@@ -218,7 +164,6 @@ form button {
 	text-align: center;
 	padding: 16px 0;
 	text-transform: uppercase;
-	/* Body/XL/600 */
 	font-family: Public Sans;
 	font-size: 25px;
 	font-style: normal;

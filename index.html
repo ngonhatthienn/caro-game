@@ -52,15 +52,9 @@
                         <button style="display: inline-block;" type="submit" name="btn-reg" id="reg">Đăng ký</button>
                     </form>
                     <p>Bạn đã có tài khoản? <a id="login-btn">Đăng nhập</a></p>
-                    <p style="padding: 15px 24px;
-                text-align: center;
-                padding-top:0;
-                color: #5f6c72;
-                font-size: 17px;">Quay về trang chủ? <a href="./index.html">Home</a></p>
-
                 </div>
             </div>
-            <div class="login-form">
+            <div class="login-form" id="login-form">
                 <h2>Đăng nhập</h2>
                 <form id="loginForm" action="reg.php" method="POST">
                     <div class="inputItem">
@@ -73,37 +67,9 @@
                     </div>
                     <button style="display: inline-block;" type="submit" name="btn-reg" id="login">Đăng nhập</button>
                 </form>
-                <!-- <p>Bạn chưa có tài khoản? <a href="" id="login-btn">Đăng ký</a></p> -->
-                <p style="padding: 15px 24px;
-                text-align: center;
-                padding-top:0;
-                color: #5f6c72;
-                font-size: 17px;">Quay về trang chủ? <a href="./index.html">Home</a></p>
+                <p>Bạn chưa có tài khoản? <a id="signup-btn">Đăng ký</a></p>
             </div>
         </div>
-
-        <nav class="nav" id="navbar">
-            <a href='/'>
-                <span class='material-symbols-outlined'>home</span>
-            </a>
-            <div>
-                <!-- <div class={ isClicked ? `${classes.navbar} ${classes.active}` : `${classes.navbar}` }> -->
-                <Button class='btn gre' id="signup-btn">
-                    Đăng ký tài khoản
-                </Button>
-
-                <!-- <Button class='btn gre' id="signup-btn">
-                        Đăng ký
-                    </Button> -->
-                <!-- </div> -->
-            </div>
-            <div class=mobile>
-                <span className='material-symbols-outlined' onClick={clickedHandle}>
-                    {isClicked ? 'close' : 'menu'}
-                </span>
-            </div>
-        </nav>
-        <div class=content></div>
     </div>
     <script src="./script.js"></script>
 
