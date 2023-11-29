@@ -244,7 +244,7 @@ span {
 	font-weight: 700;
 }
 .B1 {
-	color: red; 
+	color: red;
 	font-weight: 700;
 }
 .B2 {
@@ -254,4 +254,25 @@ span {
 
 .showMatch p span {
 	font-size: 25px;
+}
+button {
+	outline: none;
+	border: 1px solid #fa8232;
+	padding: 5px 10px;
+	margin-right: 5px;
+	background-color: #fa8232;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+#pagination button:first-child {
+	border-left: 4px solid #fa8232;
+	border-radius: 10px 0px 0px 10px;
+}
+
+#pagination button:last-child {
+	border-right: 1px solid #fa8232;
+	border-radius: 0px 10px 10px 0px;
 }
